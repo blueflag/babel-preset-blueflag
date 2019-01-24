@@ -101,9 +101,10 @@ An object containing configuration to be passed on to the preset's child plugins
 
 ## Plugins & Presets
 ```
-babel-plugin-transform-runtime
-babel-plugin-transform-class-properties
-babel-preset-env
-babel-preset-react
-babel-preset-stage-3
+@babel/plugin-proposal-class-properties
+@babel/plugin-syntax-dynamic-import
+@babel/plugin-transform-runtime
+@babel/preset-env
+@babel/preset-flow
+@babel/preset-react
  ```
