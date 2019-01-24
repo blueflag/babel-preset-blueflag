@@ -57,7 +57,6 @@ module.exports = function(context, options) {
         ]);
     }
 
-    syntaxDynamicImport
     // @babel/plugin-syntax-dynamic-import
     if(disabled.indexOf('syntax-dynamic-import') === -1) {
         plugins.push([
