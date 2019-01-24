@@ -2,8 +2,8 @@ var env = require('@babel/preset-env');
 var react = require('@babel/preset-react');
 var flow = require('@babel/preset-flow');
 var transformRuntime = require('@babel/plugin-transform-runtime');
-var transfromClassProperties = require('@babel/plugin-proposal-class-properties');
-
+var transformClassProperties = require('@babel/plugin-proposal-class-properties');
+var syntaxDynamicImport = require('@babel/plugin-syntax-dynamic-import');
 
 module.exports = function(context, options) {
     options = options || {};
@@ -15,7 +15,7 @@ module.exports = function(context, options) {
     var presets = [];
     var plugins = [];
 
-    // babel-preset-env
+    // @babel/preset-env
     if(disabled.indexOf('env') === -1) {
         presets.push([
             env,
@@ -25,7 +25,7 @@ module.exports = function(context, options) {
         ])
     }
 
-    // babel-preset-react
+    // @babel/preset-react
     if(disabled.indexOf('react') === -1) {
         presets.push([
             react,
@@ -33,7 +33,7 @@ module.exports = function(context, options) {
         ]);
     }
 
-    // babel-preset-flow
+    // @babel/preset-flow
     if(disabled.indexOf('flow') === -1) {
         presets.push([
             flow,
@@ -41,7 +41,7 @@ module.exports = function(context, options) {
         ]);
     }
 
-    // babel-plugin-transform-runtime
+    // @babel/plugin-transform-runtime
     if(disabled.indexOf('transform-runtime') === -1) {
         plugins.push([
             transformRuntime,
@@ -49,11 +49,20 @@ module.exports = function(context, options) {
         ]);
     }
 
-    // babel-plugin-transform-class-properties
+    // @babel/plugin-proposal-class-properties
     if(disabled.indexOf('transform-class-properties') === -1) {
         plugins.push([
-            transfromClassProperties,
+            transformClassProperties,
             config['transform-class-properties']
+        ]);
+    }
+
+    syntaxDynamicImport
+    // @babel/plugin-syntax-dynamic-import
+    if(disabled.indexOf('syntax-dynamic-import') === -1) {
+        plugins.push([
+            syntaxDynamicImport,
+            config['syntax-dynamic-import']
         ]);
     }
 
